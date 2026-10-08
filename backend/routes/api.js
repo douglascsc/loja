@@ -27,6 +27,7 @@ const filtroProdutos = z.object({
 });
 
 // ---------- Público ----------
+r.get("/saude", (_req, res) => res.json({ ok: true }));
 r.get("/csrf", emitirTokenCsrf);
 r.get("/loja", loja.loja);
 r.get("/produtos", validar(filtroProdutos, "query"), loja.listarProdutos);

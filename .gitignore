@@ -4,3 +4,4 @@ database/*.db
 database/*.db-*
 uploads/*
 !uploads/.gitkeep
+database/backups/

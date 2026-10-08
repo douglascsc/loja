@@ -8,7 +8,8 @@
     "seed": "node database/seed.js",
     "seed:demo": "node database/seed.js --demo",
     "admin:criar": "node database/criar-admin.js",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "backup": "node database/backup.js"
   },
   "repository": {
     "type": "git",
