@@ -1,0 +1,43 @@
+{
+  "name": "o-melhor-bolo-de-pote",
+  "version": "1.0.0",
+  "description": "Loja virtual O MELHOR BOLO DE POTE — Campo Bom/RS",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node database/seed.js",
+    "seed:demo": "node database/seed.js --demo",
+    "admin:criar": "node database/criar-admin.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglascsc/loja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/douglascsc/loja/issues"
+  },
+  "homepage": "https://github.com/douglascsc/loja#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "compression": "^1.8.2",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "multer": "^2.4.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.1"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.12"
+  }
+}
