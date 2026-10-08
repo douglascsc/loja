@@ -346,7 +346,8 @@ details.tabela-alternativa summary {
   background: var(--branco);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-lg);
-  overflow: hidden;
+  /* tablets: tabela larga rola dentro da caixa, nunca a página inteira */
+  overflow-x: auto;
 }
 
 .tabela {
@@ -724,8 +725,17 @@ details.tabela-alternativa summary {
 
 /* Campos de arquivo e flex/grid internos não podem alargar a tela no celular */
 input[type="file"] {
+  width: 100%;
   max-width: 100%;
   font-size: var(--texto-sm);
+}
+
+.previa-imagem > * {
+  max-width: 100%;
+}
+
+.tabela td {
+  overflow-wrap: anywhere;
 }
 
 .previa-imagem > *,

@@ -160,7 +160,7 @@ Requisições que alteram dados exigem o cabeçalho `X-CSRF-Token` (obtido em
 **Admin** (`/api/admin/*`, exige papel `admin`): `dashboard`, `produtos`
 (CRUD, `PATCH` de estoque/preço/visibilidade, `POST :id/imagem`),
 `categorias`, `pedidos` (lista, detalhe, `PATCH :id/status`), `clientes`
-(lista, detalhe, `PATCH :id/ativo`), `depoimentos`, `mensagens`,
+(lista, detalhe, `PATCH :id/ativo`, `POST :id/senha-temporaria`), `depoimentos`, `mensagens`,
 `configuracoes` (+ `POST configuracoes/logo`) e `bairros`.
 
 ## Segurança
@@ -195,7 +195,7 @@ Acesse `/admin` com uma conta de papel `admin`.
   (cancelar devolve o estoque), WhatsApp do cliente. Atualiza a cada 30 s.
 - **Produtos** — cadastro, foto, preço, promoção, estoque, visibilidade,
   destaque e categorias.
-- **Clientes**, **Depoimentos** (moderação) e **Mensagens**.
+- **Clientes** (inclui gerar senha temporária), **Depoimentos** (moderação) e **Mensagens**.
 - **Configurações** — nome, símbolo, WhatsApp, redes, endereço, CNPJ,
   horários, pedido mínimo, retirada, faixa de aviso e bairros com taxa.
 
@@ -238,7 +238,7 @@ Funciona igual em Render (com disco), Fly.io (com volume) ou uma VPS
 | Fotos dos produtos | Ilustrações próprias provisórias | Painel → Produtos |
 | Termos e política de privacidade | Modelos iniciais — revisar com profissional | `frontend/termos.html` e `privacidade.html` |
 | Depoimentos | Nenhum real ainda (os de `seed:demo` são marcados como exemplo) | Chegam pela área do cliente; moderação no painel |
-| Recuperação de senha por e-mail | **Não implementada** (decisão desta fase) | Precisaria de SMTP; hoje o cliente pede ajuda pelo contato |
+| Recuperação de senha por e-mail | **Não implementada** (decisão desta fase) | O cliente pede ajuda pelo contato e o admin gera uma **senha temporária** em Painel → Clientes |
 
 ### Envio do pedido para o WhatsApp
 

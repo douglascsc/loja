@@ -9,7 +9,10 @@ import { Enderecos } from "../models/enderecos.js";
 import { Mensagens } from "../models/mensagens.js";
 import { Pedidos } from "../models/pedidos.js";
 import { Produtos } from "../models/produtos.js";
+import { randomInt } from "node:crypto";
+import { Sessoes } from "../models/sessoes.js";
 import { situacaoLoja } from "../services/loja.js";
+import { hashSenha } from "../services/senha.js";
 import { alterarStatus, detalharPedido } from "../services/pedidos.js";
 import { removerImagem, salvarImagem } from "../services/uploads.js";
 
@@ -182,6 +185,26 @@ export function alterarAtivoCliente(req, res) {
   if (!Clientes.buscarPorId(id)) throw naoEncontrado("Cliente não encontrado.");
   Clientes.definirAtivo(id, req.body?.ativo === true);
   res.json({ ok: true, cliente: Clientes.buscarPorId(id) });
+}
+
+/**
+ * Gera uma senha temporária para o cliente que esqueceu a dele (não há
+ * recuperação por e-mail nesta versão). A senha é mostrada UMA vez ao admin,
+ * que a repassa ao cliente; todas as sessões do cliente são encerradas.
+ */
+export async function gerarSenhaTemporaria(req, res) {
+  const id = idParam(req);
+  const cliente = Clientes.buscarPorId(id);
+  if (!cliente) throw naoEncontrado("Cliente não encontrado.");
+  if (cliente.papel === "admin" && id !== req.cliente.id) throw requisicaoInvalida("Use npm run admin:criar para administradores.");
+  const letras = "abcdefghjkmnpqrstuvwxyz";
+  const digitos = "23456789";
+  const sorteio = (base, n) => Array.from({ length: n }, () => base[randomInt(base.length)]).join("");
+  const senha = `${sorteio(letras, 5)}${sorteio(digitos, 3)}${sorteio(letras, 2)}`;
+  Clientes.atualizarSenha(id, await hashSenha(senha));
+  Sessoes.removerDoCliente(id);
+  res.set("Cache-Control", "no-store");
+  res.json({ ok: true, senha_temporaria: senha });
 }
 
 // ---------- Depoimentos ----------

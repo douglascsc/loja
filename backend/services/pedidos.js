@@ -31,7 +31,8 @@ export function calcularCarrinho(itensEntrada) {
 
   for (const { produto_id, quantidade } of itens) {
     const p = produtos.get(produto_id);
-    if (!p || !p.disponivel) {
+    // Produto oculto ou de categoria desativada não pode ser comprado nem pela API.
+    if (!p || !p.disponivel || p.categoria_ativa === 0) {
       problemas.push({ produto_id, tipo: "indisponivel", mensagem: "Produto indisponível no momento." });
       continue;
     }

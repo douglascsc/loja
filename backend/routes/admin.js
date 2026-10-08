@@ -41,6 +41,7 @@ r.patch("/pedidos/:id/status", validar(statusSchema), admin.mudarStatusPedido);
 r.get("/clientes", admin.listarClientes);
 r.get("/clientes/:id", admin.buscarCliente);
 r.patch("/clientes/:id/ativo", admin.alterarAtivoCliente);
+r.post("/clientes/:id/senha-temporaria", admin.gerarSenhaTemporaria);
 
 r.get("/depoimentos", admin.listarDepoimentos);
 r.post("/depoimentos", validar(depoimentoAdminSchema), admin.criarDepoimento);

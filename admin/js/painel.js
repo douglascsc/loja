@@ -56,7 +56,7 @@ function desenharGrafico(container, dias) {
         <text class="eixo-texto" x="${m.esq - 8}" y="${y(v) + 4}" text-anchor="end">${moeda(v).replace(",00", "")}</text>`)}
       ${dias.map((d, i) => {
         const x = m.esq + i * faixa + (faixa - barra) / 2;
-        return html`<rect class="alvo" x="${m.esq + i * faixa}" y="${m.topo}" width="${faixa}" height="${alt}" tabindex="0" data-i="${i}"
+        return html`<rect class="alvo" x="${m.esq + i * faixa}" y="${m.topo}" width="${faixa}" height="${alt}" tabindex="0" role="img" data-i="${i}"
             aria-label="${DIA_LONGO.format(d.data)}: ${moeda(d.total)} em ${d.pedidos} pedido(s)"></rect>
           <path class="barra" d="${caminho(x, y(d.total), barra)}"></path>
           ${i % 2 === dias.length % 2 || i === dias.length - 1 ? html`<text class="eixo-texto" x="${x + barra / 2}" y="${A - 6}" text-anchor="middle">${i === dias.length - 1 ? "Hoje" : DIA_CURTO.format(d.data)}</text>` : ""}`;

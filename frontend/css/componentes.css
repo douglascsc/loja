@@ -207,6 +207,21 @@
   }
 }
 
+@media (max-width: 360px) {
+  .acoes-cabecalho {
+    gap: 2px;
+  }
+  .marca {
+    gap: 6px;
+  }
+  .marca-nome strong {
+    font-size: 0.98rem !important;
+  }
+  .btn-menu {
+    width: 40px;
+  }
+}
+
 @media (max-width: 560px) {
   .cabecalho-conteudo {
     gap: var(--e-2);

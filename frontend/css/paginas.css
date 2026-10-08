@@ -526,12 +526,14 @@
   justify-content: center;
 }
 
-.depoimento figcaption {
+.depoimento figcaption,
+.depoimento .autor-depoimento {
   color: var(--cor-texto-suave);
   font-size: var(--texto-sm);
 }
 
-.depoimento figcaption strong {
+.depoimento figcaption strong,
+.depoimento .autor-depoimento strong {
   color: var(--cacau-800);
 }
 
@@ -798,6 +800,7 @@ a.info-item:hover {
 
 .produto-info {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--e-4);
 }
 
@@ -839,7 +842,8 @@ a.info-item:hover {
 
 .produto-compra .btn {
   flex: 1;
-  min-width: 200px;
+  min-width: min(200px, 100%);
+  white-space: normal;
 }
 
 .produto-extras {
@@ -982,6 +986,11 @@ details.sanfona p {
   border: 1px solid var(--cor-borda);
 }
 
+.conta-abas {
+  display: grid;
+  gap: 4px;
+}
+
 .conta-menu button {
   display: flex;
   align-items: center;
@@ -1107,6 +1116,10 @@ details.sanfona p {
     display: flex;
     overflow-x: auto;
     scrollbar-width: none;
+  }
+  .conta-abas {
+    display: flex;
+    gap: 4px;
   }
   .conta-menu button {
     flex-shrink: 0;

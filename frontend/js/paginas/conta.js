@@ -24,7 +24,7 @@ function abrirAba(nome, focar = false) {
   history.replaceState(null, "", `#${alvo.dataset.aba}`);
 }
 for (const a of abas) a.addEventListener("click", () => abrirAba(a.dataset.aba));
-$(".conta-menu").addEventListener("keydown", (e) => {
+$(".conta-abas").addEventListener("keydown", (e) => {
   const i = abas.indexOf(document.activeElement);
   if (i < 0) return;
   const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];

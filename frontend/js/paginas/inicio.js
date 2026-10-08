@@ -173,13 +173,13 @@ async function carregarDepoimentos() {
   renderizar(
     trilho,
     depoimentos.map(
-      (d, i) => html`<figure class="depoimento${i === 0 ? " ativo" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${depoimentos.length}" ${i === 0 ? "" : 'aria-hidden="true"'}>
+      (d, i) => html`<div class="depoimento${i === 0 ? " ativo" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} de ${depoimentos.length}" ${i === 0 ? "" : 'aria-hidden="true"'}>
         <span class="aspas" aria-hidden="true">“</span>
         ${d.exemplo ? html`<span class="selo-exemplo">Depoimento de exemplo</span>` : ""}
         <blockquote>${d.texto}</blockquote>
         ${estrelas(d.nota, 1, { compacto: true })}
-        <figcaption><strong>${d.nome_exibicao}</strong>${d.cidade ? `, ${d.cidade}` : ""}${d.produto_nome ? html` · provou <a href="/produto/${encodeURIComponent(d.produto_slug)}">${d.produto_nome}</a>` : ""}</figcaption>
-      </figure>`
+        <p class="autor-depoimento"><strong>${d.nome_exibicao}</strong>${d.cidade ? `, ${d.cidade}` : ""}${d.produto_nome ? html` · provou <a href="/produto/${encodeURIComponent(d.produto_slug)}">${d.produto_nome}</a>` : ""}</p>
+      </div>`
     )
   );
   if (depoimentos.length < 2) return;

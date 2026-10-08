@@ -1,4 +1,4 @@
-import { get, patch } from "/js/core/api.js";
+import { get, patch, post } from "/js/core/api.js";
 import { STATUS } from "/js/core/constantes.js";
 import { $, html, icone, renderizar } from "/js/core/dom.js";
 import { cep, data, dataHora, moeda, telefone } from "/js/core/formato.js";
@@ -46,7 +46,9 @@ async function abrirCliente(id) {
           ${whats ? html`<p><a class="btn btn-whatsapp btn-pequeno" href="${whats}" target="_blank" rel="noopener">${icone("whatsapp")}WhatsApp</a></p>` : ""}
           ${c.papel !== "admin"
             ? html`<label class="interruptor"><input type="checkbox" id="clienteAtivo" ${c.ativo ? "checked" : ""} /><span class="trilho"></span>Conta ativa</label>
-              <p class="ajuda">Contas desativadas não conseguem entrar nem fazer pedidos.</p>`
+              <p class="ajuda">Contas desativadas não conseguem entrar nem fazer pedidos.</p>
+              <p><button class="btn btn-claro btn-pequeno" type="button" id="senhaTemporaria">Gerar senha temporária</button></p>
+              <p class="ajuda" id="resultadoSenha" aria-live="polite">Use quando o cliente esquecer a senha. Ele poderá trocá-la em Minha conta → Senha.</p>`
             : ""}
         </div>
         <div class="bloco">
@@ -63,6 +65,18 @@ async function abrirCliente(id) {
           : html`<p class="ajuda">Ainda não fez pedidos.</p>`}
       </div>`
   );
+  corpo.querySelector("#senhaTemporaria")?.addEventListener("click", async (e) => {
+    if (!confirm(`Gerar uma nova senha para ${c.nome}? A senha atual deixa de funcionar.`)) return;
+    try {
+      const r = await post(`/admin/clientes/${c.id}/senha-temporaria`);
+      const saida = corpo.querySelector("#resultadoSenha");
+      saida.textContent = `Nova senha: ${r.senha_temporaria} — envie ao cliente por um canal seguro. Ela não será mostrada de novo.`;
+      saida.classList.add("alerta", "alerta-sucesso");
+      e.target.disabled = true;
+    } catch (erro) {
+      toast(erro.message, { tipo: "erro" });
+    }
+  });
   corpo.querySelector("#clienteAtivo")?.addEventListener("change", async (e) => {
     try {
       await patch(`/admin/clientes/${c.id}/ativo`, { ativo: e.target.checked });

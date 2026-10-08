@@ -1,7 +1,7 @@
 import { db } from "../config/database.js";
 
 const SELECT_BASE = `
-  SELECT p.*, c.nome AS categoria_nome, c.slug AS categoria_slug,
+  SELECT p.*, c.nome AS categoria_nome, c.slug AS categoria_slug, c.ativo AS categoria_ativa,
          COALESCE(p.preco_promocional, p.preco) AS preco_final,
          (SELECT ROUND(AVG(d.nota), 1) FROM depoimentos d WHERE d.produto_id = p.id AND d.aprovado = 1) AS nota_media,
          (SELECT COUNT(*) FROM depoimentos d WHERE d.produto_id = p.id AND d.aprovado = 1) AS total_avaliacoes

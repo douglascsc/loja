@@ -313,6 +313,30 @@ describe("Admin", () => {
     assert.equal(det.body.cliente.senha_hash, undefined);
   });
 
+  it("gera senha temporária para cliente e encerra as sessões dele", async () => {
+    const a = await adminLogado();
+    const c = await clienteLogado();
+    const r = await a.post(`/api/admin/clientes/${c.cliente.id}/senha-temporaria`);
+    assert.equal(r.status, 200);
+    assert.match(r.body.senha_temporaria, /^[a-z]{5}\d{3}[a-z]{2}$/);
+    assert.equal((await c.get("/api/cliente/me")).body.logado, false);
+    const novo = await novoAgente();
+    assert.equal((await novo.post("/api/auth/login").send({ email: c.email, senha: r.body.senha_temporaria })).status, 200);
+    // cliente comum não acessa
+    assert.equal((await novo.post(`/api/admin/clientes/${c.cliente.id}/senha-temporaria`)).status, 403);
+  });
+
+  it("produto de categoria desativada não pode ser comprado pela API", async () => {
+    const a = await adminLogado();
+    const c = await clienteLogado();
+    const cat = (await a.post("/api/admin/categorias").send({ nome: "Sazonal Teste" })).body.categoria;
+    const p = (await a.post("/api/admin/produtos").send({ nome: "Pote Sazonal", preco: 1500, estoque: 5, categoria_id: cat.id })).body.produto;
+    await a.put(`/api/admin/categorias/${cat.id}`).send({ nome: "Sazonal Teste", ativo: false });
+    const r = await c.post("/api/pedidos").send({ itens: [{ produto_id: p.id, quantidade: 1 }], tipo_entrega: "retirada", forma_pagamento: "pix" });
+    assert.equal(r.status, 409);
+    assert.equal(r.body.detalhes[0].tipo, "indisponivel");
+  });
+
   it("salva configurações válidas e recusa inválidas", async () => {
     const a = await adminLogado();
     const ok = await a.put("/api/admin/configuracoes").send({ whatsapp: "(51) 99999-0000", instagram: "https://instagram.com/obolodepote" });
