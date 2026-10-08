@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="depoimentos">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Depoimentos</h1>
+        <p>Avaliações enviadas por clientes após a entrega. Só aparecem no site depois de aprovadas.</p>
+      </div>
+      <button class="btn btn-primario" type="button" id="novoDepoimento">Adicionar depoimento</button>
+    </div>
+    <div class="alerta" id="avisoExemplos" hidden>Existem depoimentos de <strong>exemplo</strong> (criados pelo seed de demonstração). Exclua-os antes de divulgar a loja.</div>
+    <br />
+    <div class="tabela-caixa">
+      <table class="tabela">
+        <caption class="sr-only">Lista de depoimentos</caption>
+        <thead><tr><th scope="col">Depoimento</th><th scope="col">Produto</th><th scope="col">Nota</th><th scope="col">Data</th><th scope="col">Publicado</th><th scope="col"><span class="sr-only">Ações</span></th></tr></thead>
+        <tbody id="listaDepoimentos"></tbody>
+      </table>
+    </div>
+  </main>
+  <script type="module" src="/admin/js/depoimentos.js"></script>
+</body>
+</html>

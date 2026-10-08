@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="clientes">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Clientes</h1>
+        <p>Cadastros, endereços e histórico de compras.</p>
+      </div>
+    </div>
+    <div class="ferramentas">
+      <form class="busca" role="search" id="formBusca">
+        <label class="sr-only" for="busca">Buscar por nome, e-mail ou telefone</label>
+        <svg aria-hidden="true"><use href="/assets/icones.svg#busca" /></svg>
+        <input class="entrada" id="busca" type="search" placeholder="Nome, e-mail ou telefone…" />
+      </form>
+    </div>
+    <div class="tabela-caixa">
+      <table class="tabela">
+        <caption class="sr-only">Lista de clientes</caption>
+        <thead><tr><th scope="col">Cliente</th><th scope="col">Telefone</th><th scope="col" class="num">Pedidos</th><th scope="col" class="num">Total gasto</th><th scope="col">Último pedido</th><th scope="col">Cadastro</th></tr></thead>
+        <tbody id="listaClientes"></tbody>
+      </table>
+    </div>
+    <div class="paginacao" id="paginacao"></div>
+  </main>
+  <script type="module" src="/admin/js/clientes.js"></script>
+</body>
+</html>

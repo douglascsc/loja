@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="configuracoes">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Configurações</h1>
+        <p>Informações que aparecem no site, horários e regras de entrega.</p>
+      </div>
+    </div>
+
+    <form id="formConfig" novalidate>
+      <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+
+      <section class="painel secao-config" aria-labelledby="tLoja">
+        <h2 id="tLoja">Loja</h2>
+        <div class="form">
+          <div class="previa-imagem">
+            <img id="previaLogo" src="/assets/logo.svg" alt="" width="96" height="96" />
+            <div class="campo">
+              <label for="arquivoLogo">Símbolo da marca (ícone)</label>
+              <input id="arquivoLogo" type="file" accept="image/jpeg,image/png,image/webp" />
+              <p class="ajuda">PNG/WebP quadrado com fundo transparente, até 2 MB. Aparece ao lado do nome no topo do site.</p>
+            </div>
+          </div>
+          <div class="form-linha">
+            <div class="campo"><label for="nome_loja">Nome da loja</label><input class="entrada" id="nome_loja" name="nome_loja" required maxlength="80" /></div>
+            <div class="campo"><label for="slogan">Slogan</label><input class="entrada" id="slogan" name="slogan" maxlength="140" /></div>
+          </div>
+          <div class="campo"><label for="descricao_seo">Descrição para o Google</label><textarea class="entrada" id="descricao_seo" name="descricao_seo" rows="2" maxlength="300"></textarea>
+            <p class="ajuda">Aparece nos resultados de busca. Ideal: até 160 caracteres.</p></div>
+        </div>
+      </section>
+
+      <section class="painel secao-config" aria-labelledby="tContato">
+        <h2 id="tContato">Contato e redes sociais</h2>
+        <p class="ajuda">Campos vazios ficam ocultos no site (por exemplo, o botão de WhatsApp só aparece com número preenchido).</p>
+        <div class="form">
+          <div class="form-linha">
+            <div class="campo"><label for="whatsapp">WhatsApp</label><input class="entrada" id="whatsapp" name="whatsapp" type="tel" placeholder="(51) 90000-0000" /></div>
+            <div class="campo"><label for="telefone">Telefone</label><input class="entrada" id="telefone" name="telefone" type="tel" /></div>
+            <div class="campo"><label for="email">E-mail</label><input class="entrada" id="email" name="email" type="email" /></div>
+          </div>
+          <div class="form-linha">
+            <div class="campo"><label for="instagram">Instagram</label><input class="entrada" id="instagram" name="instagram" type="url" placeholder="https://instagram.com/sualoja" /></div>
+            <div class="campo"><label for="facebook">Facebook</label><input class="entrada" id="facebook" name="facebook" type="url" placeholder="https://facebook.com/sualoja" /></div>
+            <div class="campo"><label for="tiktok">TikTok</label><input class="entrada" id="tiktok" name="tiktok" type="url" placeholder="https://tiktok.com/@sualoja" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="painel secao-config" aria-labelledby="tEndereco">
+        <h2 id="tEndereco">Endereço e dados legais</h2>
+        <div class="form">
+          <div class="form-linha">
+            <div class="campo"><label for="end_cep">CEP</label><input class="entrada" id="end_cep" data-endereco="cep" inputmode="numeric" /></div>
+            <div class="campo"><label for="end_logradouro">Rua</label><input class="entrada" id="end_logradouro" data-endereco="logradouro" /></div>
+            <div class="campo"><label for="end_numero">Número</label><input class="entrada" id="end_numero" data-endereco="numero" /></div>
+          </div>
+          <div class="form-linha">
+            <div class="campo"><label for="end_complemento">Complemento</label><input class="entrada" id="end_complemento" data-endereco="complemento" /></div>
+            <div class="campo"><label for="end_bairro">Bairro</label><input class="entrada" id="end_bairro" data-endereco="bairro" /></div>
+            <div class="campo"><label for="end_cidade">Cidade</label><input class="entrada" id="end_cidade" data-endereco="cidade" /></div>
+            <div class="campo"><label for="end_estado">UF</label><input class="entrada" id="end_estado" data-endereco="estado" maxlength="2" /></div>
+          </div>
+          <p class="ajuda">Sem rua preenchida, o site mostra apenas a cidade e o mapa da cidade.</p>
+          <div class="form-linha">
+            <div class="campo"><label for="razao_social">Razão social</label><input class="entrada" id="razao_social" name="razao_social" maxlength="120" /></div>
+            <div class="campo"><label for="cnpj">CNPJ</label><input class="entrada" id="cnpj" name="cnpj" inputmode="numeric" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="painel secao-config" aria-labelledby="tHorario">
+        <h2 id="tHorario">Funcionamento</h2>
+        <div class="form">
+          <div class="form-linha">
+            <div class="campo"><label for="modo_funcionamento">Situação da loja</label>
+              <select class="entrada" id="modo_funcionamento" name="modo_funcionamento">
+                <option value="auto">Automática, pelos horários abaixo</option>
+                <option value="aberta">Forçar aberta</option>
+                <option value="fechada">Forçar fechada (não recebe pedidos)</option>
+              </select></div>
+            <div class="campo"><span class="rotulo">Fora do horário</span>
+              <label class="interruptor"><input type="checkbox" id="aceita_pedidos_fora_horario" /><span class="trilho"></span>Aceitar pedidos (ficam aguardando confirmação)</label></div>
+          </div>
+          <div id="horarios"></div>
+        </div>
+      </section>
+
+      <section class="painel secao-config" aria-labelledby="tPedidos">
+        <h2 id="tPedidos">Pedidos e entrega</h2>
+        <div class="form">
+          <div class="form-linha">
+            <div class="campo"><label for="cidade_entrega">Cidade atendida</label><input class="entrada" id="cidade_entrega" name="cidade_entrega" /></div>
+            <div class="campo"><label for="pedido_minimo">Pedido mínimo (R$)</label><input class="entrada" id="pedido_minimo" inputmode="decimal" placeholder="0,00" /></div>
+            <div class="campo"><span class="rotulo">Retirada</span>
+              <label class="interruptor"><input type="checkbox" id="permite_retirada" /><span class="trilho"></span>Permitir retirada no local</label></div>
+          </div>
+          <div class="campo"><label for="endereco_retirada">Endereço/instruções de retirada</label><input class="entrada" id="endereco_retirada" name="endereco_retirada" maxlength="200" /></div>
+          <div class="campo"><label for="prazo_entrega">Prazo de entrega (texto)</label><input class="entrada" id="prazo_entrega" name="prazo_entrega" maxlength="200" /></div>
+          <div class="campo"><label for="mensagem_aviso">Faixa de aviso no topo do site <span class="opcional">(opcional)</span></label><input class="entrada" id="mensagem_aviso" name="mensagem_aviso" maxlength="200" placeholder="Ex.: Feriado: entregas apenas até as 14h" /></div>
+        </div>
+      </section>
+
+      <div class="barra-salvar"><button class="btn btn-primario" type="submit">Salvar configurações</button></div>
+    </form>
+
+    <section class="painel secao-config" aria-labelledby="tBairros">
+      <h2 id="tBairros">Bairros atendidos e taxas</h2>
+      <p class="ajuda">O cliente só consegue pedir entrega para bairros desta lista. Taxa 0 = entrega grátis.</p>
+      <div class="tabela-caixa">
+        <table class="tabela">
+          <thead><tr><th scope="col">Bairro</th><th scope="col" class="num">Taxa</th><th scope="col">Ativo</th><th scope="col"><span class="sr-only">Ações</span></th></tr></thead>
+          <tbody id="listaBairros"></tbody>
+        </table>
+      </div>
+      <form class="ferramentas" id="formBairro" novalidate>
+        <br />
+        <label class="sr-only" for="novoBairro">Nome do bairro</label>
+        <input class="entrada" id="novoBairro" name="nome" placeholder="Novo bairro" required />
+        <label class="sr-only" for="novaTaxa">Taxa em reais</label>
+        <input class="entrada" id="novaTaxa" name="taxa" inputmode="decimal" placeholder="Taxa (R$)" required />
+        <button class="btn btn-claro" type="submit">Adicionar bairro</button>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/admin/js/configuracoes.js"></script>
+</body>
+</html>

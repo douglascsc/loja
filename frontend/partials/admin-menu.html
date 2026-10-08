@@ -1,0 +1,34 @@
+<a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <header class="admin-topo">
+    <button class="btn btn-icone btn-fantasma" type="button" id="adminMenuBotao" aria-controls="adminMenu" aria-expanded="false" aria-label="Abrir menu">
+      <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#menu" /></svg>
+    </button>
+    <a class="admin-marca" href="/admin"><img src="{{loja_logo}}" alt="" width="34" height="34" /><span>Painel</span></a>
+  </header>
+  <nav class="admin-menu" id="adminMenu" aria-label="Menu do painel">
+    <a class="admin-marca" href="/admin"><img src="{{loja_logo}}" alt="" width="40" height="40" /><span>Painel<small>{{loja_nome}}</small></span></a>
+    <ul>
+      <li><a href="/admin" data-pagina="painel"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#loja" /></svg>Visão geral</a></li>
+      <li><a href="/admin/pedidos" data-pagina="pedidos"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#pacote" /></svg>Pedidos<span class="contagem" data-contagem="pedidos" hidden></span></a></li>
+      <li><a href="/admin/produtos" data-pagina="produtos"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#sacola" /></svg>Produtos</a></li>
+      <li><a href="/admin/clientes" data-pagina="clientes"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#usuario" /></svg>Clientes</a></li>
+      <li><a href="/admin/depoimentos" data-pagina="depoimentos"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#estrela" /></svg>Depoimentos<span class="contagem" data-contagem="depoimentos" hidden></span></a></li>
+      <li><a href="/admin/mensagens" data-pagina="mensagens"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#email" /></svg>Mensagens<span class="contagem" data-contagem="mensagens" hidden></span></a></li>
+      <li><a href="/admin/configuracoes" data-pagina="configuracoes"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#escudo" /></svg>Configurações</a></li>
+    </ul>
+    <div class="admin-menu-rodape">
+      <a href="/" target="_blank" rel="noopener"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#seta-direita" /></svg>Ver loja</a>
+      <button type="button" id="adminSair"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#sair" /></svg>Sair</button>
+    </div>
+  </nav>
+  <div class="sombra-fundo" id="adminSombra"></div>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <dialog class="dialogo" id="dialogo" aria-labelledby="dialogoTitulo">
+    <div class="dialogo-topo">
+      <h2 id="dialogoTitulo">Detalhes</h2>
+      <button class="btn btn-icone btn-fantasma" type="button" data-fechar-dialogo aria-label="Fechar">
+        <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#fechar" /></svg>
+      </button>
+    </div>
+    <div class="dialogo-corpo" id="dialogoCorpo"></div>
+  </dialog>

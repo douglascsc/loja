@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="produtos">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Produtos</h1>
+        <p>Cadastre sabores, ajuste preços e controle o estoque do dia.</p>
+      </div>
+      <button class="btn btn-primario" type="button" id="novoProduto">
+        <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#mais" /></svg>Novo produto
+      </button>
+    </div>
+
+    <div class="ferramentas">
+      <form class="busca" role="search" id="formBusca">
+        <label class="sr-only" for="busca">Buscar produto</label>
+        <svg aria-hidden="true"><use href="/assets/icones.svg#busca" /></svg>
+        <input class="entrada" id="busca" type="search" placeholder="Buscar produto…" />
+      </form>
+    </div>
+
+    <div class="tabela-caixa">
+      <table class="tabela">
+        <caption class="sr-only">Lista de produtos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th><th scope="col">Categoria</th><th scope="col" class="num">Preço</th>
+            <th scope="col" class="num">Estoque</th><th scope="col">Na loja</th><th scope="col">Destaque</th><th scope="col" class="num">Vendidos</th><th scope="col"><span class="sr-only">Ações</span></th>
+          </tr>
+        </thead>
+        <tbody id="listaProdutos"></tbody>
+      </table>
+    </div>
+
+    <section class="secao-config painel" aria-labelledby="tituloCategorias">
+      <h2 id="tituloCategorias">Categorias</h2>
+      <p class="ajuda">Organizam o cardápio e geram as páginas /produtos/nome-da-categoria.</p>
+      <div class="tabela-caixa">
+        <table class="tabela">
+          <thead><tr><th scope="col">Nome</th><th scope="col">Endereço</th><th scope="col" class="num">Produtos</th><th scope="col">Ativa</th><th scope="col"><span class="sr-only">Ações</span></th></tr></thead>
+          <tbody id="listaCategorias"></tbody>
+        </table>
+      </div>
+      <p><br /><button class="btn btn-claro" type="button" id="novaCategoria">Nova categoria</button></p>
+    </section>
+  </main>
+  <script type="module" src="/admin/js/produtos.js"></script>
+</body>
+</html>

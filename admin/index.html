@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="painel">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Visão geral</h1>
+        <p id="situacaoLoja">Carregando…</p>
+      </div>
+      <a class="btn btn-primario" href="/admin/pedidos">Ver pedidos</a>
+    </div>
+
+    <div class="indicadores" id="indicadores"></div>
+
+    <div class="grade-painel">
+      <div>
+        <section class="painel" aria-labelledby="tituloGrafico">
+          <h2 id="tituloGrafico">Vendas nos últimos 14 dias</h2>
+          <div class="grafico" id="grafico"></div>
+          <details class="tabela-alternativa">
+            <summary>Ver dados em tabela</summary>
+            <div class="tabela-caixa" id="tabelaGrafico"></div>
+          </details>
+        </section>
+        <br />
+        <section class="painel" aria-labelledby="tituloUltimos">
+          <h2 id="tituloUltimos">Últimos pedidos</h2>
+          <div class="tabela-caixa">
+            <table class="tabela">
+              <thead><tr><th scope="col">Pedido</th><th scope="col">Cliente</th><th scope="col">Status</th><th scope="col" class="num">Total</th></tr></thead>
+              <tbody id="ultimosPedidos"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div>
+        <section class="painel" aria-labelledby="tituloAvisos">
+          <h2 id="tituloAvisos">Pendências</h2>
+          <ul class="lista-simples" id="avisos"></ul>
+        </section>
+        <br />
+        <section class="painel" aria-labelledby="tituloEstoque">
+          <h2 id="tituloEstoque">Estoque baixo</h2>
+          <ul class="lista-simples" id="estoqueBaixo"></ul>
+        </section>
+        <br />
+        <section class="painel" aria-labelledby="tituloMaisVendidos">
+          <h2 id="tituloMaisVendidos">Mais vendidos</h2>
+          <ul class="lista-simples" id="maisVendidos"></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/admin/js/painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include admin-head -->
+</head>
+<body class="pagina-admin" data-pagina="pedidos">
+  <!-- @include admin-menu -->
+  <main class="admin-conteudo" id="conteudo">
+    <div class="admin-cabecalho">
+      <div>
+        <h1>Pedidos</h1>
+        <p>Confirme, acompanhe e atualize o status dos pedidos. A lista atualiza sozinha a cada 30 segundos.</p>
+      </div>
+    </div>
+
+    <div class="ferramentas">
+      <form class="busca" role="search" id="formBusca">
+        <label class="sr-only" for="busca">Buscar por código, nome ou e-mail</label>
+        <svg aria-hidden="true"><use href="/assets/icones.svg#busca" /></svg>
+        <input class="entrada" id="busca" type="search" placeholder="Código, nome ou e-mail…" />
+      </form>
+      <label class="sr-only" for="filtroStatus">Filtrar por status</label>
+      <select class="entrada" id="filtroStatus">
+        <option value="">Todos os status</option>
+      </select>
+    </div>
+
+    <div class="tabela-caixa">
+      <table class="tabela">
+        <caption class="sr-only">Lista de pedidos</caption>
+        <thead>
+          <tr><th scope="col">Pedido</th><th scope="col">Cliente</th><th scope="col">Entrega</th><th scope="col">Itens</th><th scope="col">Status</th><th scope="col" class="num">Total</th></tr>
+        </thead>
+        <tbody id="listaPedidos"></tbody>
+      </table>
+    </div>
+    <div class="paginacao" id="paginacao"></div>
+  </main>
+  <script type="module" src="/admin/js/pedidos.js"></script>
+</body>
+</html>
