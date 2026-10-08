@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-produtos" data-categoria="{{categoria_atual}}">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="container">
+      <header class="pagina-topo">
+        <nav class="trilha" aria-label="Você está em">
+          <ol><li><a href="/">Início</a></li><li aria-current="page">Cardápio</li></ol>
+        </nav>
+        <h1 id="tituloCatalogo">Cardápio</h1>
+        <p id="descricaoCatalogo">Bolos de pote feitos no dia. Escolha seus sabores favoritos e receba em Campo Bom.</p>
+      </header>
+
+      <div class="barra-catalogo">
+        <nav class="abas" id="abasCatalogo" aria-label="Categorias">
+          <a class="aba" href="/produtos">Todos</a>
+        </nav>
+        <form class="busca" role="search" id="formBusca">
+          <label class="sr-only" for="campoBusca">Buscar sabor</label>
+          <svg aria-hidden="true"><use href="/assets/icones.svg#busca" /></svg>
+          <input class="entrada" id="campoBusca" type="search" placeholder="Buscar sabor…" autocomplete="off" />
+        </form>
+      </div>
+
+      <p class="resultado-contagem" id="contagem" aria-live="polite"></p>
+      <div class="grade-produtos" id="gradeCatalogo" aria-busy="true">
+        <div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div>
+      </div>
+      <div class="secao"></div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/produtos.js"></script>
+</body>
+</html>

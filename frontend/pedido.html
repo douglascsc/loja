@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-pedido">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="container">
+      <header class="pagina-topo">
+        <nav class="trilha" aria-label="Você está em">
+          <ol><li><a href="/conta">Minha conta</a></li><li><a href="/conta#pedidos">Pedidos</a></li><li aria-current="page">Detalhes</li></ol>
+        </nav>
+        <h1 id="tituloPedido">Pedido</h1>
+        <p id="subtituloPedido"></p>
+      </header>
+      <div id="avisoNovo"></div>
+      <div class="pedido-grade" id="pedidoConteudo" aria-busy="true"><div class="esqueleto"></div></div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/pedido.js"></script>
+</body>
+</html>

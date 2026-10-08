@@ -10,6 +10,8 @@ export const PADROES = Object.freeze({
   telefone: "",
   whatsapp: "",
   email: "",
+  razao_social: "",
+  cnpj: "",
   instagram: "",
   facebook: "",
   tiktok: "",

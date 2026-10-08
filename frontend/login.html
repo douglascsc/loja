@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-autenticacao">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="caixa-autenticacao">
+      <div class="painel">
+        <h1>Entrar</h1>
+        <p class="subtitulo">Acesse sua conta para finalizar pedidos e acompanhar entregas.</p>
+        <form class="form" id="formLogin" novalidate>
+          <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+          <div class="campo">
+            <label for="loginEmail">E-mail</label>
+            <input class="entrada" id="loginEmail" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="campo">
+            <label for="loginSenha">Senha</label>
+            <div class="campo-senha">
+              <input class="entrada" id="loginSenha" name="senha" type="password" autocomplete="current-password" required />
+              <button class="mostrar-senha btn-icone" type="button" aria-label="Mostrar senha" aria-pressed="false">
+                <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#olho" /></svg>
+              </button>
+            </div>
+            <p class="ajuda">Esqueceu a senha? Fale com a loja pelo contato do site.</p>
+          </div>
+          <button class="btn btn-primario btn-grande btn-bloco" type="submit">Entrar</button>
+        </form>
+        <p class="troca-autenticacao">Ainda não tem conta? <a href="/cadastro" id="linkCadastro">Criar conta grátis</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+  <div class="faixa-aviso" id="faixaAviso" hidden></div>
+  <header class="cabecalho" id="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <a class="marca" href="/" aria-label="{{loja_nome}} — página inicial">
+        <img src="{{loja_logo}}" alt="" width="46" height="46" />
+        <span class="marca-nome" aria-hidden="true"><small>O MELHOR</small><strong>Bolo de Pote</strong></span>
+      </a>
+
+      <nav class="nav-principal" id="navPrincipal" aria-label="Menu principal">
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/produtos">Cardápio</a></li>
+          <li><a href="/#sobre">Nossa história</a></li>
+          <li><a href="/#depoimentos">Depoimentos</a></li>
+          <li><a href="/#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="acoes-cabecalho">
+        <a class="btn btn-conta" href="/login" id="linkConta">
+          <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#usuario" /></svg>
+          <span class="rotulo-botao" id="rotuloConta">Entrar</span>
+        </a>
+        <button class="btn btn-primario btn-carrinho" type="button" id="abrirCarrinho" aria-controls="gavetaCarrinho" aria-expanded="false">
+          <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#sacola" /></svg>
+          <span class="rotulo-botao">Carrinho</span>
+          <span class="contador-carrinho" id="contadorCarrinho" aria-hidden="true">0</span>
+          <span class="sr-only" id="descricaoCarrinho">, vazio</span>
+        </button>
+        <button class="btn btn-icone btn-menu" type="button" id="botaoMenu" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#menu" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>

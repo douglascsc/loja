@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-autenticacao">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="caixa-autenticacao">
+      <div class="painel">
+        <h1>Criar conta</h1>
+        <p class="subtitulo">Leva menos de um minuto. Seus dados ficam guardados para os próximos pedidos.</p>
+        <form class="form" id="formCadastro" novalidate>
+          <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+          <div class="campo">
+            <label for="cadNome">Nome completo</label>
+            <input class="entrada" id="cadNome" name="nome" autocomplete="name" required minlength="2" maxlength="100" />
+          </div>
+          <div class="campo">
+            <label for="cadEmail">E-mail</label>
+            <input class="entrada" id="cadEmail" name="email" type="email" autocomplete="email" required maxlength="120" />
+          </div>
+          <div class="campo">
+            <label for="cadTelefone">Celular / WhatsApp</label>
+            <input class="entrada" id="cadTelefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(51) 90000-0000" />
+            <p class="ajuda">Usamos para avisar sobre a entrega.</p>
+          </div>
+          <div class="campo">
+            <label for="cadSenha">Senha</label>
+            <div class="campo-senha">
+              <input class="entrada" id="cadSenha" name="senha" type="password" autocomplete="new-password" required minlength="8" maxlength="72" aria-describedby="dicaSenha" />
+              <button class="mostrar-senha btn-icone" type="button" aria-label="Mostrar senha" aria-pressed="false">
+                <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#olho" /></svg>
+              </button>
+            </div>
+            <div class="forca-senha" aria-hidden="true"><span id="barraForca"></span></div>
+            <p class="ajuda" id="dicaSenha">Mínimo de 8 caracteres, com letras e números.</p>
+          </div>
+          <label class="caixa-selecao">
+            <input type="checkbox" name="aceite_termos" id="cadTermos" required />
+            <span>Li e aceito os <a href="/termos" target="_blank">termos de uso</a> e a <a href="/privacidade" target="_blank">política de privacidade</a>.</span>
+          </label>
+          <button class="btn btn-primario btn-grande btn-bloco" type="submit">Criar minha conta</button>
+        </form>
+        <p class="troca-autenticacao">Já tem conta? <a href="/login" id="linkLogin">Entrar</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/cadastro.js"></script>
+</body>
+</html>

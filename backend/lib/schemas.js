@@ -231,6 +231,11 @@ export const configuracoesSchema = z
     telefone,
     whatsapp: telefone,
     email: z.union([email, z.literal("")]),
+    razao_social: z.string().trim().max(120),
+    cnpj: z
+      .string()
+      .transform((v) => v.replace(/\D+/g, ""))
+      .refine((v) => v === "" || v.length === 14, "CNPJ inválido (14 dígitos)."),
     instagram: urlRede(["instagram.com"]),
     facebook: urlRede(["facebook.com"]),
     tiktok: urlRede(["tiktok.com"]),

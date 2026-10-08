@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="O Melhor Bolo de Pote">
+  <defs>
+    <clipPath id="c"><path d="M14.5 24 L18.6 53.5 Q19.2 57.5 23.2 57.5 H40.8 Q44.8 57.5 45.4 53.5 L49.5 24 Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect x="10" y="22" width="44" height="40" fill="#6B3E2A"/>
+    <path d="M10 46 q5.5 -2.5 11 0 t11 0 t11 0 t11 0 V40 H10 Z" fill="#F7E4CC"/>
+    <path d="M10 34 q5.5 -2.5 11 0 t11 0 t11 0 t11 0 V24 H10 Z" fill="#F4A9BD"/>
+  </g>
+  <path d="M14.5 24 L18.6 53.5 Q19.2 57.5 23.2 57.5 H40.8 Q44.8 57.5 45.4 53.5 L49.5 24" fill="none" stroke="#3A2118" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11 24.5 Q32 6 53 24.5 Z" fill="#FFF6F0" stroke="#3A2118" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="9.5" y="22" width="45" height="6" rx="3" fill="#B02E5A" stroke="#3A2118" stroke-width="3"/>
+  <path d="M32 11.5 q1 -5 5 -6.5" fill="none" stroke="#3A2118" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="31.5" cy="13" r="5" fill="#B02E5A" stroke="#3A2118" stroke-width="2.5"/>
+  <circle cx="29.8" cy="11.4" r="1.3" fill="#fff" opacity=".8"/>
+</svg>

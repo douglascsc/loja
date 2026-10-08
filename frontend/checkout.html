@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-checkout">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="container">
+      <header class="pagina-topo">
+        <nav class="trilha" aria-label="Você está em">
+          <ol><li><a href="/produtos">Cardápio</a></li><li aria-current="page">Finalizar pedido</li></ol>
+        </nav>
+        <h1>Finalizar pedido</h1>
+        <p>Você paga só na entrega ou na retirada. Nada é cobrado agora.</p>
+      </header>
+
+      <div id="avisoCheckout"></div>
+
+      <form id="formCheckout" novalidate></form>
+      <div class="checkout-grade" data-raiz-form="formCheckout">
+        <div class="form">
+          <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+
+          <fieldset class="painel etapa-checkout">
+            <legend><span class="num" aria-hidden="true">1</span>Como você quer receber?</legend>
+            <div class="opcoes">
+              <div class="opcao">
+                <input form="formCheckout" type="radio" name="tipo_entrega" id="tipoEntrega" value="entrega" checked />
+                <label for="tipoEntrega"><svg aria-hidden="true"><use href="/assets/icones.svg#caminhao" /></svg><strong>Entrega</strong><small id="resumoEntrega">Em Campo Bom</small></label>
+              </div>
+              <div class="opcao">
+                <input form="formCheckout" type="radio" name="tipo_entrega" id="tipoRetirada" value="retirada" />
+                <label for="tipoRetirada"><svg aria-hidden="true"><use href="/assets/icones.svg#loja" /></svg><strong>Retirada</strong><small>Grátis, no nosso endereço</small></label>
+              </div>
+            </div>
+            <p class="ajuda" id="infoRetirada" hidden></p>
+          </fieldset>
+
+          <fieldset class="painel etapa-checkout" id="etapaEndereco">
+            <legend><span class="num" aria-hidden="true">2</span>Endereço de entrega</legend>
+            <div class="opcoes" id="opcoesEndereco" role="radiogroup" aria-label="Endereços salvos"></div>
+            <div id="areaNovoEndereco"></div>
+            <p><button class="btn btn-claro btn-pequeno" type="button" id="btnNovoEndereco">
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#mais" /></svg>Novo endereço
+            </button></p>
+          </fieldset>
+
+          <fieldset class="painel etapa-checkout">
+            <legend><span class="num" aria-hidden="true" id="numPagamento">3</span>Pagamento na entrega/retirada</legend>
+            <div class="opcoes">
+              <div class="opcao">
+                <input form="formCheckout" type="radio" name="forma_pagamento" id="pagPix" value="pix" checked />
+                <label for="pagPix"><svg aria-hidden="true"><use href="/assets/icones.svg#pix" /></svg><strong>Pix</strong><small>Chave enviada na entrega</small></label>
+              </div>
+              <div class="opcao">
+                <input form="formCheckout" type="radio" name="forma_pagamento" id="pagCartao" value="cartao" />
+                <label for="pagCartao"><svg aria-hidden="true"><use href="/assets/icones.svg#cartao" /></svg><strong>Cartão</strong><small>Débito ou crédito na maquininha</small></label>
+              </div>
+              <div class="opcao">
+                <input form="formCheckout" type="radio" name="forma_pagamento" id="pagDinheiro" value="dinheiro" />
+                <label for="pagDinheiro"><svg aria-hidden="true"><use href="/assets/icones.svg#dinheiro" /></svg><strong>Dinheiro</strong><small>Informe se precisa de troco</small></label>
+              </div>
+            </div>
+            <div class="campo" id="campoTroco" hidden>
+              <label for="troco">Troco para quanto? <span class="opcional">(opcional)</span></label>
+              <input form="formCheckout" class="entrada" id="troco" name="troco" inputmode="decimal" placeholder="Ex.: 100,00" />
+            </div>
+          </fieldset>
+
+          <fieldset class="painel etapa-checkout">
+            <legend><span class="num" aria-hidden="true" id="numObs">4</span>Contato e observações</legend>
+            <div class="form">
+              <div class="campo">
+                <label for="telefoneContato">Celular para contato</label>
+                <input form="formCheckout" class="entrada" id="telefoneContato" name="telefone" type="tel" autocomplete="tel" required />
+              </div>
+              <div class="campo">
+                <label for="observacoes">Observações <span class="opcional">(opcional)</span></label>
+                <textarea form="formCheckout" class="entrada" id="observacoes" name="observacoes" rows="3" maxlength="500" placeholder="Ex.: interfone com defeito, é presente, horário preferido…"></textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="painel resumo-checkout" aria-labelledby="tituloResumo">
+          <h2 id="tituloResumo">Resumo</h2>
+          <ul class="itens-pedido" id="resumoItens"></ul>
+          <div class="totais">
+            <div><span>Subtotal</span><span id="resumoSubtotal">—</span></div>
+            <div><span>Entrega</span><span id="resumoFrete">—</span></div>
+            <div class="total"><span>Total</span><span id="resumoTotal">—</span></div>
+          </div>
+          <p class="ajuda" id="avisoMinimo" hidden></p>
+          <p><button form="formCheckout" class="btn btn-primario btn-grande btn-bloco" type="submit" id="confirmarPedido">Confirmar pedido</button></p>
+          <p class="ajuda centro">Ao confirmar, você concorda com os <a href="/termos">termos de uso</a>.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/checkout.js"></script>
+</body>
+</html>

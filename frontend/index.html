@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-inicio">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-labelledby="tituloHero">
+      <div class="container hero-grade">
+        <div class="hero-texto">
+          <p class="selo-status" id="seloStatus"><span class="bolinha" aria-hidden="true"></span><span id="textoStatus">Feito hoje em Campo Bom</span></p>
+          <h1 id="tituloHero">Bolo de pote de verdade, <span class="destaque-texto">feito hoje.</span></h1>
+          <p class="hero-rotativo" aria-hidden="true">
+            Hoje tem <span class="sabor-rotativo" id="saborRotativo">Ninho com Nutella</span>
+          </p>
+          <p class="hero-sub">
+            Camadas generosas, ingredientes selecionados e pote lacrado chegando geladinho
+            na sua porta. Produção própria, em pequenos lotes, todos os dias.
+          </p>
+          <div class="hero-acoes">
+            <a class="btn btn-primario btn-grande" href="#cardapio">
+              Comprar agora
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#seta-direita" /></svg>
+            </a>
+            <a class="btn btn-secundario btn-grande" href="/produtos">Ver todos os sabores</a>
+          </div>
+          <ul class="hero-confianca">
+            <li><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#caminhao" /></svg>Entrega no mesmo dia</li>
+            <li><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#escudo" /></svg>Pote lacrado</li>
+            <li><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#batedor" /></svg>Receita da casa</li>
+          </ul>
+        </div>
+
+        <div class="hero-arte" aria-hidden="true">
+          <div class="hero-circulo"></div>
+          <img class="hero-pote" src="/assets/produtos/ninho-com-nutella.svg" alt="" width="520" height="520" fetchpriority="high" />
+          <img class="hero-pote-mini mini-1" src="/assets/produtos/red-velvet.svg" alt="" width="180" height="180" />
+          <img class="hero-pote-mini mini-2" src="/assets/produtos/brigadeiro-tradicional.svg" alt="" width="160" height="160" />
+          <span class="hero-chip chip-1"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#coracao" /></svg>Feito com carinho</span>
+          <span class="hero-chip chip-2" id="chipEntrega"><svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#caminhao" /></svg>Entrega em Campo Bom</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BENEFÍCIOS ================= -->
+    <section class="secao beneficios" aria-labelledby="tituloBeneficios">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="sobretitulo">Por que o melhor</p>
+          <h2 id="tituloBeneficios">Doce de confeitaria, com cuidado de casa</h2>
+        </div>
+        <ul class="grade-beneficios">
+          <li class="beneficio revelar">
+            <span class="beneficio-icone"><svg aria-hidden="true"><use href="/assets/icones.svg#batedor" /></svg></span>
+            <h3>Feito no dia</h3>
+            <p>Montamos os potes todas as manhãs, em pequenos lotes. Nada de bolo de vitrine parado há dias.</p>
+          </li>
+          <li class="beneficio revelar">
+            <span class="beneficio-icone"><svg aria-hidden="true"><use href="/assets/icones.svg#folha" /></svg></span>
+            <h3>Ingredientes de verdade</h3>
+            <p>Chocolate nobre, frutas selecionadas e cremes preparados aqui. Receitas próprias, sem atalhos.</p>
+          </li>
+          <li class="beneficio revelar">
+            <span class="beneficio-icone"><svg aria-hidden="true"><use href="/assets/icones.svg#escudo" /></svg></span>
+            <h3>Pote lacrado e seguro</h3>
+            <p>Embalagem com lacre e transporte refrigerado: chega bonito, firme e geladinho até você.</p>
+          </li>
+          <li class="beneficio revelar">
+            <span class="beneficio-icone"><svg aria-hidden="true"><use href="/assets/icones.svg#caminhao" /></svg></span>
+            <h3>Entrega no mesmo dia</h3>
+            <p>Peça pelo site e receba em Campo Bom no mesmo dia, ou retire com a gente sem custo.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CARDÁPIO ================= -->
+    <section class="secao cardapio" id="cardapio" aria-labelledby="tituloCardapio">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="sobretitulo">Cardápio do dia</p>
+          <h2 id="tituloCardapio">Escolha o seu pote</h2>
+          <p>Todos com 250 ml de camadas bem servidas. Monte sua seleção e finalize em poucos cliques.</p>
+        </div>
+        <div class="abas" id="abasCategorias" role="tablist" aria-label="Filtrar por categoria"></div>
+        <div class="grade-produtos" id="gradeProdutos" aria-live="polite" aria-busy="true">
+          <div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div>
+        </div>
+        <p class="centro mais-produtos"><a class="btn btn-secundario" href="/produtos">Ver cardápio completo</a></p>
+      </div>
+    </section>
+
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="secao como-funciona" aria-labelledby="tituloComo">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="sobretitulo">Simples assim</p>
+          <h2 id="tituloComo">Do nosso forno para a sua colher</h2>
+        </div>
+        <ol class="passos">
+          <li class="passo revelar">
+            <span class="passo-numero" aria-hidden="true">1</span>
+            <h3>Escolha os sabores</h3>
+            <p>Adicione ao carrinho os potes e kits que você quiser.</p>
+          </li>
+          <li class="passo revelar">
+            <span class="passo-numero" aria-hidden="true">2</span>
+            <h3>Finalize o pedido</h3>
+            <p>Escolha entrega ou retirada. Pague com Pix, cartão ou dinheiro na hora de receber.</p>
+          </li>
+          <li class="passo revelar">
+            <span class="passo-numero" aria-hidden="true">3</span>
+            <h3>Receba geladinho</h3>
+            <p>Acompanhe o status na sua conta e aproveite: é só abrir e comer.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= KITS ================= -->
+    <section class="secao-kits" aria-labelledby="tituloKits">
+      <div class="container">
+        <div class="banner-kits revelar">
+          <div>
+            <p class="sobretitulo">Para presentear</p>
+            <h2 id="tituloKits">Kits que adoçam qualquer encontro</h2>
+            <p>Aniversário, reunião no escritório ou aquele mimo surpresa: nossos kits já vêm prontos para presente.</p>
+            <a class="btn btn-claro btn-grande" href="/produtos/kits">
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#presente" /></svg>
+              Ver kits
+            </a>
+          </div>
+          <img src="/assets/produtos/kit-festa-6.svg" alt="Kit com seis potes de sabores variados" width="420" height="420" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+    <section class="secao sobre-escuro gotejado-topo" id="sobre" aria-labelledby="tituloSobre">
+      <div class="container sobre-grade">
+        <div>
+          <p class="sobretitulo">Nossa história</p>
+          <h2 id="tituloSobre">Começou numa cozinha de casa, em Campo Bom</h2>
+          <p>
+            O MELHOR BOLO DE POTE nasceu de uma receita de família e de uma vontade simples:
+            fazer o bolo de pote que a gente gostaria de comprar. Massa fofinha de verdade,
+            recheio que não economiza e cobertura feita na hora.
+          </p>
+          <p>
+            Dos primeiros potes vendidos para vizinhos e colegas de trabalho, viramos uma
+            confeitaria de produção própria. A essência continua a mesma: tudo é preparado
+            por nós, todos os dias, em pequenos lotes, para chegar fresquinho até você.
+          </p>
+        </div>
+        <ul class="valores">
+          <li class="revelar"><strong>Receita própria</strong><span>Massas, cremes e coberturas desenvolvidos e preparados aqui.</span></li>
+          <li class="revelar"><strong>Produção diária</strong><span>O que sai hoje foi montado hoje. Simples assim.</span></li>
+          <li class="revelar"><strong>Daqui de Campo Bom</strong><span>Atendimento próximo, de quem conhece a cidade e os clientes pelo nome.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= DEPOIMENTOS ================= -->
+    <section class="secao depoimentos" id="depoimentos" aria-labelledby="tituloDepoimentos">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="sobretitulo">Quem provou</p>
+          <h2 id="tituloDepoimentos">O que dizem nossos clientes</h2>
+        </div>
+        <div class="carrossel" id="carrossel" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="carrossel-trilho" id="carrosselTrilho"></div>
+          <div class="carrossel-controles" id="carrosselControles" hidden>
+            <button class="btn btn-icone btn-claro" type="button" id="depAnterior" aria-label="Depoimento anterior">
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#seta-esquerda" /></svg>
+            </button>
+            <div class="carrossel-pontos" id="carrosselPontos"></div>
+            <button class="btn btn-icone btn-claro" type="button" id="depProximo" aria-label="Próximo depoimento">
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#seta-direita" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REDES SOCIAIS ================= -->
+    <section class="secao-redes" id="redes" aria-labelledby="tituloRedes" hidden>
+      <div class="container">
+        <div class="painel-redes revelar">
+          <div>
+            <h2 id="tituloRedes">Acompanhe os bastidores</h2>
+            <p>Sabores novos, edições limitadas e a produção do dia nas nossas redes.</p>
+          </div>
+          <div class="botoes-redes" id="botoesRedes"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section class="secao contato" id="contato" aria-labelledby="tituloContato">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <p class="sobretitulo">Fale com a gente</p>
+          <h2 id="tituloContato">Encomendas, festas ou dúvidas?</h2>
+          <p>Mande sua mensagem. Respondemos no horário de atendimento.</p>
+        </div>
+        <div class="contato-grade">
+          <form class="painel form" id="formContato" novalidate>
+            <h3>Envie uma mensagem</h3>
+            <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1"></p>
+            <div class="form-linha">
+              <div class="campo">
+                <label for="contatoNome">Nome</label>
+                <input class="entrada" id="contatoNome" name="nome" autocomplete="name" required maxlength="100" />
+              </div>
+              <div class="campo">
+                <label for="contatoTelefone">Telefone <span class="opcional">(opcional)</span></label>
+                <input class="entrada" id="contatoTelefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" />
+              </div>
+            </div>
+            <div class="campo">
+              <label for="contatoEmail">E-mail</label>
+              <input class="entrada" id="contatoEmail" name="email" type="email" autocomplete="email" required maxlength="120" />
+            </div>
+            <div class="campo">
+              <label for="contatoMensagem">Mensagem</label>
+              <textarea class="entrada" id="contatoMensagem" name="mensagem" rows="5" required minlength="10" maxlength="2000"></textarea>
+            </div>
+            <div class="armadilha" aria-hidden="true">
+              <label for="contatoSite">Não preencha</label>
+              <input id="contatoSite" name="site" tabindex="-1" autocomplete="off" />
+            </div>
+            <button class="btn btn-primario btn-grande" type="submit">Enviar mensagem</button>
+          </form>
+
+          <div class="contato-info">
+            <ul class="lista-info" id="listaInfo"></ul>
+            <div class="mapa">
+              <iframe id="mapa" title="Mapa com a localização da loja" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/inicio.js"></script>
+</body>
+</html>

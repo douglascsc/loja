@@ -1,0 +1,27 @@
+<div class="sombra-fundo" id="sombraCarrinho"></div>
+  <aside class="gaveta" id="gavetaCarrinho" role="dialog" aria-modal="true" aria-labelledby="tituloCarrinho" tabindex="-1">
+    <div class="gaveta-topo">
+      <h2 id="tituloCarrinho">Seu carrinho</h2>
+      <button class="btn btn-icone btn-fantasma" type="button" id="fecharCarrinho" aria-label="Fechar carrinho">
+        <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#fechar" /></svg>
+      </button>
+    </div>
+    <div class="gaveta-itens" id="itensCarrinho"></div>
+    <div class="gaveta-rodape" id="rodapeCarrinho">
+      <div class="linha-total">
+        <span>Subtotal</span>
+        <strong id="subtotalCarrinho">R$ 0,00</strong>
+      </div>
+      <p class="ajuda" id="notaCarrinho">Taxa de entrega calculada no fechamento, conforme o bairro.</p>
+      <a class="btn btn-primario btn-grande btn-bloco" href="/checkout" id="finalizarPedido">
+        Finalizar pedido
+        <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#seta-direita" /></svg>
+      </a>
+      <button class="btn btn-claro btn-bloco" type="button" id="continuarComprando">Continuar comprando</button>
+    </div>
+  </aside>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <a class="whats-flutuante" id="whatsFlutuante" href="#" target="_blank" rel="noopener" aria-label="Fale com a gente no WhatsApp" hidden>
+    <svg aria-hidden="true"><use href="/assets/icones.svg#whatsapp" /></svg>
+  </a>

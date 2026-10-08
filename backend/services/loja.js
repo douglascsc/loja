@@ -45,6 +45,8 @@ export function configPublica() {
     telefone: c.telefone,
     whatsapp: c.whatsapp,
     email: c.email,
+    razao_social: c.razao_social,
+    cnpj: c.cnpj,
     instagram: c.instagram,
     facebook: c.facebook,
     tiktok: c.tiktok,

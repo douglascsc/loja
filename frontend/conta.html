@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-conta">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="container">
+      <header class="pagina-topo">
+        <h1>Olá, <span id="nomeCliente">cliente</span>!</h1>
+        <p>Acompanhe seus pedidos e mantenha seus dados atualizados.</p>
+      </header>
+
+      <div class="conta-grade">
+        <div class="conta-menu" role="tablist" aria-label="Seções da conta" aria-orientation="vertical">
+          <button role="tab" id="aba-pedidos" aria-controls="painel-pedidos" aria-selected="true" data-aba="pedidos">
+            <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#pacote" /></svg>Meus pedidos
+          </button>
+          <button role="tab" id="aba-dados" aria-controls="painel-dados" aria-selected="false" tabindex="-1" data-aba="dados">
+            <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#usuario" /></svg>Dados pessoais
+          </button>
+          <button role="tab" id="aba-enderecos" aria-controls="painel-enderecos" aria-selected="false" tabindex="-1" data-aba="enderecos">
+            <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#pin" /></svg>Endereços
+          </button>
+          <button role="tab" id="aba-seguranca" aria-controls="painel-seguranca" aria-selected="false" tabindex="-1" data-aba="seguranca">
+            <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#escudo" /></svg>Senha
+          </button>
+          <button class="btn-sair" type="button" id="botaoSair">
+            <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#sair" /></svg>Sair
+          </button>
+        </div>
+
+        <div>
+          <section class="painel" role="tabpanel" id="painel-pedidos" aria-labelledby="aba-pedidos" tabindex="0">
+            <h2>Meus pedidos</h2>
+            <ul class="lista-pedidos" id="listaPedidos"><li class="esqueleto"></li></ul>
+          </section>
+
+          <section class="painel" role="tabpanel" id="painel-dados" aria-labelledby="aba-dados" tabindex="0" hidden>
+            <h2>Dados pessoais</h2>
+            <form class="form" id="formDados" novalidate>
+              <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+              <div class="campo">
+                <label for="dadosNome">Nome completo</label>
+                <input class="entrada" id="dadosNome" name="nome" autocomplete="name" required />
+              </div>
+              <div class="form-linha">
+                <div class="campo">
+                  <label for="dadosEmail">E-mail</label>
+                  <input class="entrada" id="dadosEmail" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="campo">
+                  <label for="dadosTelefone">Celular / WhatsApp</label>
+                  <input class="entrada" id="dadosTelefone" name="telefone" type="tel" autocomplete="tel" />
+                </div>
+              </div>
+              <div><button class="btn btn-primario" type="submit">Salvar alterações</button></div>
+            </form>
+          </section>
+
+          <section class="painel" role="tabpanel" id="painel-enderecos" aria-labelledby="aba-enderecos" tabindex="0" hidden>
+            <h2>Endereços de entrega</h2>
+            <ul class="lista-enderecos" id="listaEnderecos"></ul>
+            <div id="areaFormEndereco"></div>
+            <button class="btn btn-secundario" type="button" id="novoEndereco">
+              <svg class="icone" aria-hidden="true"><use href="/assets/icones.svg#mais" /></svg>Adicionar endereço
+            </button>
+          </section>
+
+          <section class="painel" role="tabpanel" id="painel-seguranca" aria-labelledby="aba-seguranca" tabindex="0" hidden>
+            <h2>Alterar senha</h2>
+            <form class="form" id="formSenha" novalidate>
+              <p class="alerta alerta-erro" data-erro-form hidden tabindex="-1" role="alert"></p>
+              <div class="campo">
+                <label for="senhaAtual">Senha atual</label>
+                <input class="entrada" id="senhaAtual" name="senha_atual" type="password" autocomplete="current-password" required />
+              </div>
+              <div class="campo">
+                <label for="senhaNova">Nova senha</label>
+                <input class="entrada" id="senhaNova" name="nova_senha" type="password" autocomplete="new-password" required minlength="8" aria-describedby="senhaNovaAjuda" />
+                <p class="ajuda" id="senhaNovaAjuda">Mínimo de 8 caracteres, com letras e números. Outros aparelhos conectados serão desconectados.</p>
+              </div>
+              <div><button class="btn btn-primario" type="submit">Alterar senha</button></div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/conta.js"></script>
+</body>
+</html>

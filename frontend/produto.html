@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!-- @include head -->
+</head>
+<body class="pagina-produto" data-slug="{{produto_slug}}">
+  <!-- @include cabecalho -->
+
+  <main id="conteudo">
+    <div class="container">
+      <nav class="trilha pagina-topo" aria-label="Você está em">
+        <ol>
+          <li><a href="/">Início</a></li>
+          <li><a href="/produtos">Cardápio</a></li>
+          <li aria-current="page">{{produto_nome}}</li>
+        </ol>
+      </nav>
+
+      <article class="produto-detalhe" id="produtoDetalhe" aria-busy="true">
+        <div class="produto-galeria esqueleto"></div>
+        <div class="produto-info"><h1>{{produto_nome}}</h1></div>
+      </article>
+
+      <section class="secao" id="secaoAvaliacoes" aria-labelledby="tituloAvaliacoes" hidden>
+        <h2 id="tituloAvaliacoes">Avaliações</h2>
+        <ul class="avaliacoes-lista" id="listaAvaliacoes"></ul>
+      </section>
+
+      <section class="secao" aria-labelledby="tituloRelacionados" id="secaoRelacionados" hidden>
+        <h2 id="tituloRelacionados" class="cabecalho-secao">Você também vai gostar</h2>
+        <div class="grade-produtos" id="gradeRelacionados"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- @include rodape -->
+  <!-- @include carrinho -->
+  <script type="module" src="/js/paginas/produto.js"></script>
+</body>
+</html>
